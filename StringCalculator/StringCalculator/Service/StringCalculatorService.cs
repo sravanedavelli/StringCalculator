@@ -11,7 +11,7 @@ namespace StringCalculator.Service
     public class StringCalculatorService: IStringCalculatorService
     {
         private ILogger _BBVAStatmentLog;
-        private int _MaxCount;
+        private int? _MaxCount = null;
         private char[] _Delimitors;
 
         public StringCalculatorService()
@@ -27,9 +27,14 @@ namespace StringCalculator.Service
 
         private void LoadConfig()
         {
+            //This is configurable on how many numbers can be passed for addition.
+            //If it is not configured and MaxCount is 0 then we can say unlimited values can be passed.
             if (ConfigurationManager.AppSettings["MaxCount"] != null)
             {
-                this._MaxCount = Convert.ToInt32(ConfigurationManager.AppSettings["MaxCount"].ToString());
+                if (!string.IsNullOrEmpty(ConfigurationManager.AppSettings["MaxCount"].ToString()))
+                {
+                    this._MaxCount = Convert.ToInt32(ConfigurationManager.AppSettings["MaxCount"].ToString());
+                }
             }
 
             if (ConfigurationManager.AppSettings["Delimitors"] != null)
@@ -51,7 +56,6 @@ namespace StringCalculator.Service
 
             if (this._Delimitors.Count() > 0)
             {
-
                 objects = Values.Split(this._Delimitors);
             }
 
@@ -130,9 +134,18 @@ namespace StringCalculator.Service
         {
             bool perform = false;
 
-            if (Count <= this._MaxCount)
+            if (this._MaxCount != null)
             {
-                perform =  true;
+                if (Count <= this._MaxCount)
+                {
+                    perform = true;
+                }
+            }
+
+            //When the MaxCount is not defined, we allow unlimited numbers.
+            else if (this._MaxCount == null)
+            {
+                perform = true;
             }
 
             return perform;
