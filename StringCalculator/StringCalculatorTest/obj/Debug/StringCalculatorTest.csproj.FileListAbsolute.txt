@@ -1,0 +1,9 @@
+c:\users\sravanedavelli\documents\visual studio 2012\Projects\StringCalculator\StringCalculatorTest\bin\Debug\StringCalculatorTest.dll
+c:\users\sravanedavelli\documents\visual studio 2012\Projects\StringCalculator\StringCalculatorTest\bin\Debug\StringCalculatorTest.pdb
+c:\users\sravanedavelli\documents\visual studio 2012\Projects\StringCalculator\StringCalculatorTest\bin\Debug\StringCalculator.exe
+c:\users\sravanedavelli\documents\visual studio 2012\Projects\StringCalculator\StringCalculatorTest\bin\Debug\log4net.dll
+c:\users\sravanedavelli\documents\visual studio 2012\Projects\StringCalculator\StringCalculatorTest\bin\Debug\StringCalculator.pdb
+c:\users\sravanedavelli\documents\visual studio 2012\Projects\StringCalculator\StringCalculatorTest\bin\Debug\log4net.xml
+c:\users\sravanedavelli\documents\visual studio 2012\Projects\StringCalculator\StringCalculatorTest\obj\Debug\StringCalculatorTest.csprojResolveAssemblyReference.cache
+c:\users\sravanedavelli\documents\visual studio 2012\Projects\StringCalculator\StringCalculatorTest\obj\Debug\StringCalculatorTest.dll
+c:\users\sravanedavelli\documents\visual studio 2012\Projects\StringCalculator\StringCalculatorTest\obj\Debug\StringCalculatorTest.pdb
