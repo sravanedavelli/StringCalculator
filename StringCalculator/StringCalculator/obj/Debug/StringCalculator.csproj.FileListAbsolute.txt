@@ -6,3 +6,11 @@ c:\users\sravanedavelli\documents\visual studio 2012\Projects\StringCalculator\S
 c:\users\sravanedavelli\documents\visual studio 2012\Projects\StringCalculator\StringCalculator\bin\Debug\log4net.xml
 c:\users\sravanedavelli\documents\visual studio 2012\Projects\StringCalculator\StringCalculator\obj\Debug\StringCalculator.exe
 c:\users\sravanedavelli\documents\visual studio 2012\Projects\StringCalculator\StringCalculator\obj\Debug\StringCalculator.pdb
+C:\Users\sravanedavelli\Documents\GitHub\StringCalculator\StringCalculator\StringCalculator\bin\Debug\StringCalculator.exe.config
+C:\Users\sravanedavelli\Documents\GitHub\StringCalculator\StringCalculator\StringCalculator\obj\Debug\StringCalculator.exe
+C:\Users\sravanedavelli\Documents\GitHub\StringCalculator\StringCalculator\StringCalculator\obj\Debug\StringCalculator.pdb
+C:\Users\sravanedavelli\Documents\GitHub\StringCalculator\StringCalculator\StringCalculator\bin\Debug\StringCalculator.exe
+C:\Users\sravanedavelli\Documents\GitHub\StringCalculator\StringCalculator\StringCalculator\bin\Debug\StringCalculator.pdb
+C:\Users\sravanedavelli\Documents\GitHub\StringCalculator\StringCalculator\StringCalculator\bin\Debug\log4net.dll
+C:\Users\sravanedavelli\Documents\GitHub\StringCalculator\StringCalculator\StringCalculator\bin\Debug\log4net.xml
+C:\Users\sravanedavelli\Documents\GitHub\StringCalculator\StringCalculator\StringCalculator\obj\Debug\StringCalculator.csprojResolveAssemblyReference.cache

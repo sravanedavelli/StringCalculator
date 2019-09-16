@@ -40,5 +40,13 @@ namespace StringCalculator
             res = Test.Add("1,2,3,4,5,6,7,8,9,10,11,12");
             Assert.AreEqual(res, 78);
         }
+
+        [TestMethod]
+        public void TestAddWithNewlineDelim()
+        {
+            StringCalculator.Service.StringCalculatorService Test = new Service.StringCalculatorService();
+            res = Test.Add("1\n2,3");
+            Assert.AreEqual(res, 6);
+        }
     }
 }

@@ -8,6 +8,8 @@ namespace StringCalculator
 {
     public static class Util
     {
+        public const string DelimComma = ",";
+        public const string DelimNewline = @"\n";
 
          public static int if_int(object o, int default_int)
         {

@@ -35,6 +35,7 @@
     <Reference Include="log4net">
       <HintPath>..\..\..\..\..\..\..\Dev\Development\Source\Library\ThirdParty\log4net-1.2.11\bin\net\4.0\release\log4net.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />

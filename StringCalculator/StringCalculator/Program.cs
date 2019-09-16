@@ -13,7 +13,7 @@ namespace StringCalculator
         public static void Main(string[] args)
         {
             _StringCalculatorService = new StringCalculatorService();
-            _StringCalculatorService.Add();
+            _StringCalculatorService.Add(null);
         }
     }
 }

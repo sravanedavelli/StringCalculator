@@ -9,7 +9,5 @@ namespace StringCalculator.Service
     public interface IStringCalculatorService
     {
         int Add(String values);
-
-        int Add();
     }
 }

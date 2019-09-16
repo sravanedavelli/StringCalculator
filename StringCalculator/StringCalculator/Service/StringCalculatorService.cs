@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Configuration;
+using Microsoft.VisualBasic.FileIO;
+using System.IO;
 
 namespace StringCalculator.Service
 {
@@ -12,7 +14,7 @@ namespace StringCalculator.Service
     {
         private ILogger _BBVAStatmentLog;
         private int? _MaxCount = null;
-        private char[] _Delimitors;
+        private List<string> _Delimitors = new List<string>();
 
         public StringCalculatorService()
         {
@@ -39,62 +41,30 @@ namespace StringCalculator.Service
 
             if (ConfigurationManager.AppSettings["Delimitors"] != null)
             {
-                this._Delimitors = ConfigurationManager.AppSettings["Delimitors"].ToString().Split('|').SelectMany(d => d.ToCharArray()).ToArray();
+                this._Delimitors.Add(Util.DelimComma);
+                this._Delimitors.Add(Util.DelimNewline);
             }
       
         }
 
-        //Over loaded to play with console input.
-        public int Add()
-        {
-            String Values;
-            object[] objects = null;
-
-            Console.WriteLine("Enter values to Add:");
-            Values = Console.ReadLine();
-
-
-            if (this._Delimitors.Count() > 0)
-            {
-                objects = Values.Split(this._Delimitors);
-            }
-
-            int Sum = 0;
-            StringBuilder formula = new StringBuilder(); ;
-
-            if (ValidateCount(objects.Count()))
-            {
-                if (objects != null)
-                {
-                    foreach (object obj in objects)
-                    {
-                        Sum += Util.if_int(obj, 0);
-                        formula.Append(obj.ToString() + "+");
-                    }
-
-                    Console.WriteLine("{0} = {1}", formula.ToString().TrimEnd('+'), Sum);
-                }
-
-            }
-
-            else
-            {
-                Console.WriteLine("Values passed are more than maximum allowed values. Please correct");
-            }
-
-            return Sum;
-        }
+             
 
         public int Add(String Values)
         {
+            if(String.IsNullOrEmpty(Values))
+            {
+                 Console.WriteLine("Enter values to Add:");
+                Values = Console.ReadLine();
+            }
+
             int Sum = 0;
             try
             {
-                object[] objects = null;
+                List<object> objects = null;
 
                 if (this._Delimitors.Count() > 0)
                 {
-                    objects = Values.Split(this._Delimitors);
+                    objects = this.Split(Values);
                 }
 
                 StringBuilder formula = new StringBuilder(); 
@@ -127,6 +97,26 @@ namespace StringCalculator.Service
             }
 
             return Sum;
+        }
+
+        private List<object> Split(string Values)
+        {
+            StringReader sr = new StringReader(Values);
+            List<object> splitobjects = new List<object>();
+
+            using (TextFieldParser parser = new TextFieldParser(sr))
+            {
+                parser.Delimiters = this._Delimitors.ToArray();
+
+                string[] parts = parser.ReadFields();
+                foreach (string part in parts)
+                {
+                    splitobjects.Add(part);
+                }
+
+            }
+
+            return splitobjects;
         }
 
 
