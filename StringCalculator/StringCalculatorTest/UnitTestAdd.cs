@@ -48,5 +48,13 @@ namespace StringCalculator
             res = Test.Add("1\n2,3");
             Assert.AreEqual(res, 6);
         }
+
+        [TestMethod]
+        public void TestAddIgnoreGreaterThanThousand()
+        {
+            StringCalculator.Service.StringCalculatorService Test = new Service.StringCalculatorService();
+            res = Test.Add("2,1001,6");
+            Assert.AreEqual(res, 8);
+        }
     }
 }

@@ -14,6 +14,7 @@ namespace StringCalculator.Service
     {
         private ILogger _BBVAStatmentLog;
         private int? _MaxCount = null;
+        private int? _MaxValue = null;
         private List<string> _Delimitors = new List<string>();
         StringBuilder NegativeNumbers;
 
@@ -37,6 +38,14 @@ namespace StringCalculator.Service
                 if (!string.IsNullOrEmpty(ConfigurationManager.AppSettings["MaxCount"].ToString()))
                 {
                     this._MaxCount = Convert.ToInt32(ConfigurationManager.AppSettings["MaxCount"].ToString());
+                }
+            }
+
+            if (ConfigurationManager.AppSettings["MaxValue"] != null)
+            {
+                if (!string.IsNullOrEmpty(ConfigurationManager.AppSettings["MaxValue"].ToString()))
+                {
+                    this._MaxValue = Convert.ToInt32(ConfigurationManager.AppSettings["MaxValue"].ToString());
                 }
             }
 
@@ -80,8 +89,12 @@ namespace StringCalculator.Service
                         {
                             foreach (object obj in objects)
                             {
-                                Sum += Util.if_int(obj, 0);
-                                formula.Append(obj.ToString() + "+");
+                                int intvalue = Util.if_int(obj, 0);
+                                if (intvalue <= 1000)
+                                {
+                                    Sum += intvalue;
+                                    formula.Append(obj.ToString() + "+");
+                                }
                             }
                         }
 

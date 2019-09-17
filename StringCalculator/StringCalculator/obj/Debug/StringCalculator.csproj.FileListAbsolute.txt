@@ -13,4 +13,3 @@ C:\Users\sravanedavelli\Documents\GitHub\StringCalculator\StringCalculator\Strin
 C:\Users\sravanedavelli\Documents\GitHub\StringCalculator\StringCalculator\StringCalculator\bin\Debug\StringCalculator.pdb
 C:\Users\sravanedavelli\Documents\GitHub\StringCalculator\StringCalculator\StringCalculator\bin\Debug\log4net.dll
 C:\Users\sravanedavelli\Documents\GitHub\StringCalculator\StringCalculator\StringCalculator\bin\Debug\log4net.xml
-C:\Users\sravanedavelli\Documents\GitHub\StringCalculator\StringCalculator\StringCalculator\obj\Debug\StringCalculator.csprojResolveAssemblyReference.cache
