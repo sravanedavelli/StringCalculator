@@ -15,6 +15,7 @@ namespace StringCalculator.Service
         private ILogger _BBVAStatmentLog;
         private int? _MaxCount = null;
         private List<string> _Delimitors = new List<string>();
+        StringBuilder NegativeNumbers;
 
         public StringCalculatorService()
         {
@@ -39,12 +40,10 @@ namespace StringCalculator.Service
                 }
             }
 
-            if (ConfigurationManager.AppSettings["Delimitors"] != null)
-            {
-                this._Delimitors.Add(Util.DelimComma);
-                this._Delimitors.Add(Util.DelimNewline);
-            }
-      
+
+            this._Delimitors.Add(Util.DelimComma);
+            this._Delimitors.Add(Util.DelimNewline);
+
         }
 
              
@@ -58,6 +57,11 @@ namespace StringCalculator.Service
             }
 
             int Sum = 0;
+            bool isNegativepresent = false;
+
+            StringBuilder formula = new StringBuilder();
+
+
             try
             {
                 List<object> objects = null;
@@ -67,16 +71,26 @@ namespace StringCalculator.Service
                     objects = this.Split(Values);
                 }
 
-                StringBuilder formula = new StringBuilder(); 
+
                 if (ValidateCount(objects.Count()))
                 {
                     if (objects != null)
                     {
-                        foreach (object obj in objects)
+                        if (!ValidateNegativeNumbers(objects))
                         {
-                            Sum += Util.if_int(obj, 0);
-                            formula.Append(obj.ToString() + "+");
+                            foreach (object obj in objects)
+                            {
+                                Sum += Util.if_int(obj, 0);
+                                formula.Append(obj.ToString() + "+");
+                            }
                         }
+
+                        else
+                        {
+                            throw new System.InvalidOperationException(string.Format("Values cannot be negative, please correct these values: {0}",NegativeNumbers.ToString().TrimEnd(',')));
+                        }
+
+
 
                         Console.WriteLine("{0} = {1}", formula.ToString().TrimEnd('+'), Sum);
                     }
@@ -140,6 +154,23 @@ namespace StringCalculator.Service
 
             return perform;
  
+        }
+
+        private bool ValidateNegativeNumbers(List<object> objects)
+        {
+            bool isNegativeNumPresent = false;
+            NegativeNumbers = new StringBuilder();
+
+            foreach (object obj in objects)
+            {
+                if ( Double.Parse(obj.ToString()) < 0)
+                {
+                    NegativeNumbers.Append(obj.ToString() + ",");
+                    isNegativeNumPresent = true;
+                }
+            }
+
+            return isNegativeNumPresent;
         }
     }
 }
